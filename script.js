@@ -9,13 +9,13 @@ $(document).ready(function(){
         var url= first + searchVal1 + "&query=" + searchVal2;
       
        $.getJSON(url, function(response){
-           var name=response.venues.name;
-           var location=response.venues.location.formattedAddress;
-           var number=response.venues.contact.formattedPhone;
-           
+           var name=response.response.venues.name[];
+           var location=response.response.venues.location[].formattedAddress;
+           var number=response.response.venues.contact[].formattedPhone;
          $("body").append(name);
          $("body").append(location);
          $("body").append(number);
+         
        });
             
 });    
