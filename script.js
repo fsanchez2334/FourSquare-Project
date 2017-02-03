@@ -1,22 +1,22 @@
 $(document).ready(function(){
     $("#search").click(function() {
-        //alert("This works");
+    alert("This works");
  
         var searchVal1=$("#address").val();
         var searchVal2=$("#food").val();
         var first="https://api.foursquare.com/v2/venues/search?client_id=13V2HBWHG5RS5XMVAXDXD0STSY5OAVN0EQ2V0LQPBSDG34VT&client_secret=RIO145YPZWDGEJIUPLREJBQIGUO3I5UBV3UFUSNGBSCMMWKT&v=20130815&near="
       
         var url= first + searchVal1 + "&query=" + searchVal2;
-      
-       $.getJSON(url, function(response){
-           var name=response.response.venues.name[];
-           var location=response.response.venues.location[].formattedAddress;
-           var number=response.response.venues.contact[].formattedPhone;
-         $("body").append(name);
-         $("body").append(location);
-         $("body").append(number);
+   console.log(url);   
+      $.getJSON(url, function(response){
+          var name=response.response.venues[0].name;
+        var location=response.response.venues[0].location.formattedAddress;
+        var number=response.response.venues[0].contact.formattedPhone;
+          $("body").append(name + " ");
+         $("body").append(location + " ");
+         $("body").append(number + " ");
          
-       });
+      });
             
 });    
 
